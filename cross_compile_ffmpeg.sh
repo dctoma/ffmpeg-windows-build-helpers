@@ -1705,6 +1705,7 @@ build_libMXF() {
 }
 
 build_ffmpeg() {
+  echo "Building ffmpeg $1 $2 $3"
   local extra_postpend_configure_options=$2
   if [[ -z $3 ]]; then
     local output_dir="ffmpeg_git"
@@ -1739,6 +1740,7 @@ build_ffmpeg() {
   do_git_checkout https://github.com/FFmpeg/FFmpeg.git $output_dir $ffmpeg_git_checkout_version
   cd $output_dir
     apply_patch file://$patch_dir/frei0r_load-shared-libraries-dynamically.diff
+    apply_patch file://$patch_dir/remove_AVOption_related_to_frame_partitions.diff
 
     if [ "$bits_target" = "32" ]; then
       local arch=x86

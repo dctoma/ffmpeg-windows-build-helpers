@@ -4,3 +4,4 @@ output_*/
 .DS_store
 config.log
 sandbox/
+log*

@@ -1842,7 +1842,7 @@ build_ffmpeg() {
       fi
     else
       mkdir -p $cur_dir/redist
-      archive="$cur_dir/redist/ffmpeg-$(git describe --tags --match N)-win$bits_target-$1"
+      archive="$cur_dir/redist/ffmpeg-$(git describe --tags)-win$bits_target-$1"
       if [[ $original_cflags =~ "pentium3" ]]; then
         archive+="_legacy"
       fi
